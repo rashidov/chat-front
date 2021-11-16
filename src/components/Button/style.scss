@@ -1,0 +1,27 @@
+
+.button {
+	height: 39px;
+  border-radius: 4px;
+	padding: 0 18px;
+	font-size: 15px;
+	font-family: RubikRegular;
+	cursor: pointer;
+
+	&:hover {
+		opacity: 0.9;
+	}
+
+	&:active {
+		filter: brightness(0.9);
+	}
+
+	&.defaultColor {
+
+	}
+
+	&.blue {
+		border: none;
+		color: #FFFFFF;
+		background: linear-gradient(0deg, #279FE2, #279FE2), #0084FE;
+	}
+}

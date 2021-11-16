@@ -1,0 +1,17 @@
+@mixin new {
+	width: 16px;
+	height: 16px;
+	background-color: #9ca1a6;
+  background-repeat: no-repeat;
+	cursor: pointer;
+}
+
+.icon {
+	&-arrowBttom {
+		@include new();
+    -webkit-mask-image: url('../assets/icons/arrowBottom.svg');
+    mask-image: url('../assets/icons/arrowBottom.svg');
+    height: 10px;
+    width: 10px;
+	}
+}
