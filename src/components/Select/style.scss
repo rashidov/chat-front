@@ -1,0 +1,60 @@
+
+.select {
+  height: 37px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 12px;
+  border: 1px solid #D8DCE3;
+  border-radius: 4px;
+  cursor: pointer;
+
+  &.active {
+    border-color: #2684FF;
+    filter: drop-shadow(0px 0px 4px #B7D6FF);
+  }
+
+  &-text {
+    font-size: 15px;
+    font-family: RubikRegular;
+  }
+
+  &-icon {
+    margin-left: 15px;
+  }
+
+  &-content {
+    position: relative;
+    top: 4px;
+    display: flex;
+    flex-direction: column;
+    padding: 3px;
+    border: 1px solid #D8DCE3;
+    border-radius: 4px;
+    z-index: 99999;
+
+    &__item {
+      height: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 9px;
+      border-radius: 3px;
+      cursor: pointer;
+
+      &:hover {
+        background: #F9F9F9;
+      }
+
+      &-text {
+        font-size: 15px;
+        font-family: RubikRegular;
+      }
+
+      & .icon-done {
+        background-color: #00A65A;
+        margin-left: 15px;
+      }
+    }
+  }
+}
