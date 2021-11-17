@@ -1,0 +1,11 @@
+
+.card {
+  display: flex;
+  background: #FFFFFF;
+  border-radius: 4px;
+  box-shadow: 0px 1px 3px #E9E9E9;
+
+  &.default { 
+    padding: 16px 10px;
+  }
+}

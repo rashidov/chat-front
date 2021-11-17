@@ -1,0 +1,52 @@
+
+.rooms {
+  display: flex;
+  flex-direction: column;
+
+  &-container {
+    display: flex;
+    flex-direction: column;
+
+    &__title {
+      color: #2B2D3A;
+      font-size: 15px;
+      font-family: RubikMedium;
+      margin-bottom: 19px;
+    }
+
+    &__item {
+      display: flex;
+      &-leftCard {
+        width: 60%;
+
+        &-main {
+          &__container {
+          
+          }
+        }
+
+        &-sub {}
+      }
+
+      &-rightCard {
+        width: 40%;
+        margin-left: 12px;
+      }
+
+      &-leftCard, &-rightCard {
+        border: 1px solid transparent;
+        cursor: pointer;
+      }
+
+      &:hover &-leftCard, &:hover &-rightCard {
+        border: 1px solid #2684FF;
+        box-shadow: 0px 0px 4px #B7D6FF;
+        border-radius: 4px;
+      }
+    }
+
+    & .corporate-rooms {
+      margin-bottom: 30px;
+    }
+  }
+}
