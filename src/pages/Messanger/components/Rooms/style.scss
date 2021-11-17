@@ -2,6 +2,7 @@
 .rooms {
   display: flex;
   flex-direction: column;
+  color: #2B2D3A;
 
   &-container {
     display: flex;
@@ -16,26 +17,100 @@
 
     &__item {
       display: flex;
+
+      &:not(:first-child) {
+        margin-top: 10px;
+      }
+
+      &-leftCard .card ,
+      &-rightCard .card {
+        height: 30px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
       &-leftCard {
         width: 60%;
 
         &-main {
+          width: 100%;
+          display: flex;
+          justify-content: space-between;
+
           &__container {
-          
+            display: flex;
+            align-items: center;
+
+            &-avatar {
+              display: flex;
+            }
+
+            &-name {
+              font-size: 15px;
+              font-family: RubikRegular;
+
+              &.indent {
+                margin-left: 10px;
+              }
+            }
           }
         }
 
-        &-sub {}
+        &-sub {
+          color: #B6B6B6;
+          font-size: 15px;
+          font-family: RubikRegular;
+        }
       }
 
       &-rightCard {
         width: 40%;
         margin-left: 12px;
+
+        &-main {
+          display: flex;
+          justify-content: space-between;
+
+          &__container {
+            display: flex;
+
+            &-filial, &-departament {
+              color: #B6B6B6;
+              font-size: 15px;
+              font-family: RubikRegular;
+            }
+
+            &-departament {
+              margin-left: 15px;
+            }
+          }
+        }
+
+        &-sub {
+          &__container {
+            display: flex;
+
+            &-number, 
+            &-status {
+              color: #B6B6B6;
+              font-size: 15px;
+              font-family: RubikRegular;
+            }
+
+            &-status {
+              &.active {
+                color: #7788EE;
+              }
+            }
+          }
+        }
       }
 
       &-leftCard, &-rightCard {
         border: 1px solid transparent;
         cursor: pointer;
+        transition-duration: 200ms;
       }
 
       &:hover &-leftCard, &:hover &-rightCard {

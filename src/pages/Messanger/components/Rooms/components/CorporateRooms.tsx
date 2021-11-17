@@ -8,7 +8,8 @@ const CorporateRooms: React.FC = () => {
         корпоративные диалоги
       </div>
       <div className="corporate-rooms__content">
-        <RoomItem name="Бухгалтерия" filial='РЦ Ханская' type='corporate' />
+        <RoomItem name="Бухгалтерия" filial='РЦ Ханская' type='corporate' num={19} status='online' />
+        <RoomItem name="Склад" filial='РЦ Ханская' type='corporate' num={19} status='online' />
       </div>
     </div>
   )
