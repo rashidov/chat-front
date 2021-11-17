@@ -31,7 +31,7 @@ export const Select: React.FC<SelectProps> = ({value, options, isActiveIcon, pla
 // 	/>
 
 	return (
-		<>
+		<div className="selectContainer">
 			<div className={clsx('select', isActive && 'active')} onClick={handlerIsActive}>
 				<span className='select-text'>{placeholder ? value.length > 0 ? value : placeholder : value}</span>
 				<span className={clsx('select-icon', `icon-${isActive ? 'expandLess' : 'expandMore'}`)}></span>
@@ -46,6 +46,6 @@ export const Select: React.FC<SelectProps> = ({value, options, isActiveIcon, pla
 					))}
 				</div>
 			}
-		</>
+		</div>
 	)
 }
