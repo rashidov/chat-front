@@ -8,6 +8,14 @@
 }
 
 .icon {
+	&-send {
+		@include new();
+		-webkit-mask-image: url('../assets/icons/send.svg');
+		mask-image: url('../assets/icons/send.svg');
+    height: 21px;
+    width: 22px;
+	}
+
 	&-done {
 		@include new();
 		-webkit-mask-image: url('../assets/icons/done.svg');

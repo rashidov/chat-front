@@ -16,7 +16,9 @@
 	}
 
 	&.defaultColor {
-
+		background: linear-gradient(180deg, #ffffff -0.42%, #f3f3f3 93.7%);
+    color: #333333;
+    border: 1px solid #d2d6de;
 	}
 
 	&.blue {
