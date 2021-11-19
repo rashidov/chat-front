@@ -1,6 +1,7 @@
 import clsx from 'clsx'
 import React from 'react'
 import Card from '../../../../../components/Card'
+import {MessangerContext} from '../../../context'
 
 interface RoomItemProps {
   num?: number
@@ -14,8 +15,13 @@ interface RoomItemProps {
 }
 
 const RoomItem: React.FC<RoomItemProps> = ({name, filial, type, departament, avatar, position, num, status}) => {
+  const {setTypeChat} = React.useContext(MessangerContext)
+
   return (
-    <div className="rooms-container__item">
+    <div 
+      className="rooms-container__item"
+      onClick={() => setTypeChat(type)}
+    >
       <RoomCardContainerLeft 
         type={type} 
         name={name}

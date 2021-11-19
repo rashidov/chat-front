@@ -15,22 +15,73 @@
   }
 
   &-content {
-    height: 80vh;
+    height: 70vh;
     display: flex;
-    padding: 0px 10px;    
+    flex-direction: column-reverse;
+    padding: 0px 10px;   
+    overflow-y: auto; 
 
     &__item {
-      position: relative;
-      padding: 30px 0;
+      padding: 15px 0;
+      display: flex;
+      margin-left:  0;
+      margin-right: 25%;
 
-      &-userInfo {
-        display: flex;
+      &.me {
+        flex-direction: row-reverse;
+        margin-left:  25%;
+        margin-right: 0;
       }
 
-      &-message {
-        position: absolute;
+      &-avatar {
+        min-width: 35px;
+        height: 35px;
         display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-right: 7px;
+        background: #B9A1F8;
+        border-radius: 4px;
+        font-size: 15px;
+        font-family: RubikMedium;
+
+        &.me {
+          display: none;
+        }
       }
+
+      &-content {
+        display: flex;
+        flex-direction: column;
+
+        &__name {
+          font-size: 15px;
+          font-family: RubikMedium;
+
+          &.me {
+            display: none;
+          }
+        }
+        
+        &__message {
+          padding-top: 7px;
+          padding-left: 7px;
+          font-size: 15px;
+          font-family: RubikRegular;
+        }
+      }
+    }
+
+    &__notification {
+      display: flex;
+      justify-content: center;
+      padding: 15px 0;
+      color: #B6B6B6;
+      font-size: 15px;
+      font-family: RubikRegular;
+      -moz-user-select: none;
+      -khtml-user-select: none;
+      user-select: none;     
     }
   }
 

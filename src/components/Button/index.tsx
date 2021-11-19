@@ -8,6 +8,8 @@ interface ButtonProps {
 		| 'blue'
 	icon?: 
 		| 'send'
+		| 'backspace'
+		| 'listAdd'
 	className?: string
 	onClick?: () => void
 }
@@ -18,8 +20,10 @@ export const Button: React.FC<ButtonProps> = ({text, color, className, icon, onC
 			onClick={onClick}
 			className={clsx('button', className, color ? color : 'defaultColor' )}
 		>
-			{text && text}
-			<span className={clsx(icon && `icon-${icon}`)}></span>
+			<div className="button-container">
+				<span className={clsx(icon && `icon-${icon}`, text && 'icon')}></span>
+				{text && text}
+			</div>
 		</button>
 	)
 }
