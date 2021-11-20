@@ -1,3 +1,5 @@
 
 export const USER_CREATE = 'USER:CREATE'
 export const USER_CREATE_TOKEN = 'USER:CREATE/TOKEN'
+export const USER_GET = 'USER:GET'
+export const USER_DESCRIPTION = 'USER:DESCRIPTION'
