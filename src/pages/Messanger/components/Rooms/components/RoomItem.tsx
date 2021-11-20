@@ -1,7 +1,8 @@
-import clsx from 'clsx'
 import React from 'react'
+import clsx from 'clsx'
+import { useDispatch } from 'react-redux'
 import Card from '../../../../../components/Card'
-import {MessangerContext} from '../../../context'
+import { SET_CONTENT_TYPE_CHAT } from '../../../../../store/types'
 
 interface RoomItemProps {
   num?: number
@@ -12,15 +13,32 @@ interface RoomItemProps {
   status?: 'online' | 'offline'
   position?: string
   departament?: string
+  roomToken: string
 }
 
-const RoomItem: React.FC<RoomItemProps> = ({name, filial, type, departament, avatar, position, num, status}) => {
-  const {setTypeChat} = React.useContext(MessangerContext)
+const RoomItem: React.FC<RoomItemProps> = ({
+  num, 
+  name, 
+  type, 
+  status,
+  filial, 
+  avatar,
+  position, 
+  roomToken, 
+  departament, 
+}) => {
+  const dispatch = useDispatch()
+  const handlerSetTypes = () => {
+    dispatch({
+      type: SET_CONTENT_TYPE_CHAT,
+      payload: {type, token: roomToken}
+    })
+  }
 
   return (
     <div 
       className="rooms-container__item"
-      onClick={() => setTypeChat(type)}
+      onClick={handlerSetTypes}
     >
       <RoomCardContainerLeft 
         type={type} 

@@ -9,9 +9,17 @@ interface InputProps {
 	placeholder?: string
 	className?: string | undefined
 	onChange: (e: React.ChangeEvent<HTMLInputElement>) => void
+	onKeyEnter?: () => void
 }
 
-export const Input: React.FC<InputProps> = ({type, value, name, placeholder, className, onChange}) => {
+export const Input: React.FC<InputProps> = ({type, value, name, placeholder, className, onChange, onKeyEnter}) => {
+
+	const handlerDownControlKey = (e: any) => {
+		if (onKeyEnter) {
+			if (e.key === 'Enter') onKeyEnter()
+		}
+	}
+
 	return (
 		<input
 			type={type}
@@ -20,6 +28,7 @@ export const Input: React.FC<InputProps> = ({type, value, name, placeholder, cla
 			onChange={onChange}
 			placeholder={placeholder}
 			className={clsx('input', className)}
+			onKeyUp={(e) => handlerDownControlKey(e)}
 		/>
 	)
 }

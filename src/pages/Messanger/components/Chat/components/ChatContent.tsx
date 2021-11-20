@@ -1,55 +1,12 @@
 import clsx from 'clsx'
 import React from 'react'
+import { Messsage } from '../../../../../interrfaces/messsanger/MessangerStore'
 
-const ChatContent: React.FC = () => {
+interface ChatContentProps {
+  messages: Messsage[]
+}
 
-  const messages = [
-    {
-      typeMessage: 'users',
-      avatar: 'МС',
-      message: 'message... 1',
-      name: 'Митрофанова Светлана',
-      color: '#7788EE'
-    },
-    {
-      typeMessage: 'me',
-      message: 'message... 2',
-    },
-    {
-      typeMessage: 'users',
-      avatar: 'МС',
-      message: 'message... 4',
-      name: 'Митрофанова Светлана',
-      color: '#7788EE'
-    },
-    {
-      typeMessage: 'notification',
-      name: 'Митрофанова Светлана',
-    },
-    {
-      typeMessage: 'users',
-      avatar: 'ИА',
-      message: 'message... 5',
-      name: 'Иванов Александр',
-      color: '#FFCC40'
-    },    
-    {
-      typeMessage: 'users',
-      avatar: 'ПА',
-      message: 'message... 6',
-      name: 'Петров Алексей',
-      color: '#B9A1F8'
-    },
-    {
-      typeMessage: 'notification',
-      name: 'Петров Алексей',
-    },
-    {
-      typeMessage: 'notification',
-      name: 'Иванов Александр',
-    },
-  ]
-
+const ChatContent: React.FC<ChatContentProps> = ({messages}) => {
   return (
     <div className='chat-content'>
       {messages.map((message, index) => (
@@ -64,7 +21,7 @@ const ChatContent: React.FC = () => {
               color={message.color}
               message={message.message}
               key={message.name + `${index}`}
-              typeMessage={message.typeMessage === 'me' ? 'me' : 'users'}
+              typeMessage={message.userToken === 'rashidov' ? 'me' : 'users'}
             />
       ))}
     </div>
@@ -83,7 +40,13 @@ interface ChatContentItemProps {
     | 'users' 
 }
 
-const ChatContentItem: React.FC<ChatContentItemProps> = ({name, avatar, typeMessage, color, message}) => {
+const ChatContentItem: React.FC<ChatContentItemProps> = ({
+  name, 
+  color, 
+  avatar, 
+  message,
+  typeMessage, 
+}) => {
   return (
     <div className={clsx('chat-content__item', typeMessage === 'me' && 'me')}>
       <div 
