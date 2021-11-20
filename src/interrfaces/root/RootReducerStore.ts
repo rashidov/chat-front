@@ -1,8 +1,8 @@
 import { MessangerState } from "../messsanger/MessangerStore";
-import { UserrStore } from "../user/UserStore";
+import { UserStore } from "../user/UserStore";
 
 export interface RootReducerStore {
   app: any,
-  user: UserrStore
+  user: UserStore
   messanger: MessangerState
 }

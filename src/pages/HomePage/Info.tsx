@@ -9,7 +9,7 @@ const Info: React.FC = () => {
       </div>
       <div className="home-info__content">
         <div className="home-info__content-main">
-          Предназначен для облегчения обмена информации 
+          Предназначен для облегчения обмена информации
           <br />
           между сотрудниками.   
         </div>
