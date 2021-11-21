@@ -1,14 +1,14 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 import socket from './socket/soket';
 import PublicRoute from './routes';
 import { USER_CREATE_TOKEN, USER_DESCRIPTION, USER_GET } from './socket/types';
 import { SET_USER_TOKEN } from './store/types';
-import { useNavigate } from 'react-router-dom';
-import './styles/main.scss'
 import { RootReducerStore } from './interrfaces/root/RootReducerStore';
 import { UserStore } from './interrfaces/user/UserStore';
 import { SET_USER_INFO } from './store/types/user.types';
+import './styles/main.scss'
 
 const App: React.FC = () => {
   const userStore = useSelector((store: RootReducerStore) => store.user)
@@ -19,9 +19,7 @@ const App: React.FC = () => {
     const user_token = localStorage.getItem('ttUserToken')
 
     if(userStore.token.length === 0) {
-      if (user_token) {
-        socket.emit(USER_GET, {token: user_token})
-      }
+      if (user_token) socket.emit(USER_GET, {token: user_token})
     }
 
 
@@ -29,15 +27,9 @@ const App: React.FC = () => {
 
       socket.on(USER_DESCRIPTION, (data: UserStore) => {
         if(!data) return;
-        dispatch({
-          type: SET_USER_INFO,
-          payload: {...data}
-        })
-
-        dispatch({
-          type: SET_USER_TOKEN,
-          payload: user_token
-        })
+        dispatch({type: SET_USER_INFO, payload: {...data}})
+        dispatch({type: SET_USER_TOKEN, payload: user_token })
+        navigate('/messanger')
       })
 
       socket.on(USER_CREATE_TOKEN, (token: string) => {
@@ -45,10 +37,11 @@ const App: React.FC = () => {
         navigate('/messanger')
         localStorage.setItem('ttUserToken', token)
       })
+
     })
   }, [])
 
-  return (
+  return ( 
     <div className="App">
       <PublicRoute />
     </div>

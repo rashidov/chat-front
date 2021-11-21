@@ -10,58 +10,7 @@ const initState: MessangerState = {
   },
   rooms: {
     user: [],
-    corporate: [
-      {
-        num: 1,
-        name: 'Бухгалтерия',
-        filial: 'РЦ Ханская',
-        type: 'corporate',
-        roomToken: 'asd',
-        messages: [                     // по умолчанию массив messages будет пустой,
-          {                             //  а потом только буду подгружаться сообщения
-            name: 'Петров Андрей',
-            typeMessage: 'notification',
-          },
-          {
-            name: 'Петров Андрей',
-            typeMessage: 'user',
-            avatar: 'ПА',
-            color: '#B9A1F8',
-            message: 'Ох ты ж ё!',
-            userToken: 'myToken'
-          },
-          {
-            name: 'Рашидов Айдар',
-            typeMessage: 'user',
-            avatar: 'РА',
-            color: '#B9A1F8',
-            message: 'Привет',
-            userToken: 'rashidov'
-          }
-        ]
-      },
-      {
-        num: 3,
-        name: 'WMS',
-        filial: 'РЦ Ханская',
-        type: 'corporate',
-        roomToken: 'fgh',
-        messages: [
-          {
-            name: 'Иванов Александр',
-            typeMessage: 'notification',
-          },
-          {
-            name: 'Митрофанова Светлана',
-            typeMessage: 'notification',
-          },
-          {
-            name: 'Сафиуллина Алина',
-            typeMessage: 'notification',
-          },
-        ]
-      },
-    ]
+    corporate: []
   }
 }
 
@@ -103,3 +52,58 @@ export const messangerReducer = (state = initState, action: Action) => {
       return state
   }
 }
+
+
+
+// [
+//   {
+//     num: 1,
+//     name: 'Бухгалтерия',
+//     filial: 'РЦ Ханская',
+//     type: 'corporate',
+//     roomToken: 'asd',
+//     messages: [                     // по умолчанию массив messages будет пустой,
+//       {                             //  а потом только буду подгружаться сообщения
+//         name: 'Петров Андрей',
+//         typeMessage: 'notification',
+//       },
+//       {
+//         name: 'Петров Андрей',
+//         typeMessage: 'user',
+//         avatar: 'ПА',
+//         color: '#B9A1F8',
+//         message: 'Ох ты ж ё!',
+//         userToken: 'myToken'
+//       },
+//       {
+//         name: 'Рашидов Айдар',
+//         typeMessage: 'user',
+//         avatar: 'РА',
+//         color: '#B9A1F8',
+//         message: 'Привет',
+//         userToken: 'rashidov'
+//       }
+//     ]
+//   },
+//   {
+//     num: 3,
+//     name: 'WMS',
+//     filial: 'РЦ Ханская',
+//     type: 'corporate',
+//     roomToken: 'fgh',
+//     messages: [
+//       {
+//         name: 'Иванов Александр',
+//         typeMessage: 'notification',
+//       },
+//       {
+//         name: 'Митрофанова Светлана',
+//         typeMessage: 'notification',
+//       },
+//       {
+//         name: 'Сафиуллина Алина',
+//         typeMessage: 'notification',
+//       },
+//     ]
+//   },
+// ]
