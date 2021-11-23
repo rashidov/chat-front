@@ -14,7 +14,8 @@ const Info: React.FC = () => {
           между сотрудниками.   
         </div>
         <div className="home-info__content-warning">
-          <span>
+          <span>сервис работает в тестовом режиме</span>
+          {/* <span>
             на момент разработки 
             <br />
             при регистрации достаточно указать:
@@ -24,7 +25,7 @@ const Info: React.FC = () => {
             <li>имя</li>
             <li>фамилия</li>
             <li>должность</li>
-          </ul>
+          </ul> */}
         </div>
       </div>
     </div>

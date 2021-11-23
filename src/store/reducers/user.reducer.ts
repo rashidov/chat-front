@@ -4,7 +4,7 @@ import { SET_USER_INFO, SET_USER_TOKEN } from "../types"
 
 const initState: UserStore = {
   avatar: '',
-  color: '',
+  color: '#B9A1F8',
   name: '',
   token: '',
   position: ''

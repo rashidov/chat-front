@@ -11,6 +11,8 @@ import { USER_CREATE } from '../../socket/types'
 
 const RegestrationForm: React.FC = () => {
   const disptach = useDispatch()
+  const [loginState, setLoginState] = React.useState<string>('')
+  const [passwordState, setPasswordState] = React.useState<string>('')
   const [fisrtNameState, setFirstNameState] = React.useState<string>('')
   const [lastNameState, setLastNameState] = React.useState<string>('')
   const [positionState, setPositionState] = React.useState<string>('')
@@ -27,6 +29,19 @@ const RegestrationForm: React.FC = () => {
       color: '#B9A1F8'
     }
 
+    const candidat = {
+      login: loginState,
+      password: passwordState,
+      firstName: fisrtNameState,
+      lastName: lastNameState,
+      email: '',
+      phone: '',
+      position: positionState,
+      departament: positionState === 'оператор WMS' ? 'склад' : 'бухгалтерия',
+      filial: 'РЦ Ханская',
+      avatar: strAvatar
+    }
+
     disptach({type: SET_USER_INFO, payload: newUser})
     socket.emit(USER_CREATE, newUser)
   }
@@ -36,27 +51,38 @@ const RegestrationForm: React.FC = () => {
       <Card
         customStyle={{padding: '10% 0'}}
       > 
-          <Input 
-            value={fisrtNameState} 
-            placeholder='имя' 
-            onChange={(e: React.ChangeEvent<HTMLInputElement>) => setFirstNameState(e.target.value)} 
-          />
-          <Input 
-            value={lastNameState} 
-            placeholder='фамилия' 
-            onChange={(e: React.ChangeEvent<HTMLInputElement>) => setLastNameState(e.target.value)} 
-          />
-          <Select 
-            value={positionState}
-            placeholder='должность' 
-            options={selectOptions} 
-            onChange={(str) => setPositionState(str)} 
-          />
-          <Button 
-            text='создать аккаунт' 
-            color='blue' 
-            onClick={handlerSubbmit} 
-          />
+        <Input 
+          value={loginState} 
+          placeholder='логин' 
+          onChange={(e: React.ChangeEvent<HTMLInputElement>) => setLoginState(e.target.value)} 
+        />
+        <Input 
+          value={passwordState} 
+          placeholder='пароль' 
+          type='password'
+          onChange={(e: React.ChangeEvent<HTMLInputElement>) => setPasswordState(e.target.value)} 
+        />
+        <Input 
+          value={fisrtNameState} 
+          placeholder='имя' 
+          onChange={(e: React.ChangeEvent<HTMLInputElement>) => setFirstNameState(e.target.value)} 
+        />
+        <Input 
+          value={lastNameState} 
+          placeholder='фамилия' 
+          onChange={(e: React.ChangeEvent<HTMLInputElement>) => setLastNameState(e.target.value)} 
+        />
+        <Select 
+          value={positionState}
+          placeholder='должность' 
+          options={selectOptions} 
+          onChange={(str) => setPositionState(str)} 
+        />
+        <Button 
+          text='создать аккаунт' 
+          color='blue' 
+          onClick={handlerSubbmit} 
+        />
       </Card>
     </div>
   )
