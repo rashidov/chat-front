@@ -18,10 +18,9 @@ const App: React.FC = () => {
   React.useEffect(() => {
     const user_token = localStorage.getItem('ttUserToken')
 
-    if(userStore.token.length === 0) {
+    if(userStore.accessToken!.length === 0) {
       if (user_token) socket.emit(USER_GET, {token: user_token})
     }
-
 
     socket.on('connect', () => {
 

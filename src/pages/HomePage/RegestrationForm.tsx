@@ -8,6 +8,7 @@ import { SET_USER_INFO } from '../../store/types'
 import './style.scss'
 import socket from '../../socket/soket'
 import { USER_CREATE } from '../../socket/types'
+import { registrations } from '../../store/actions/user.actions'
 
 const RegestrationForm: React.FC = () => {
   const disptach = useDispatch()
@@ -22,12 +23,12 @@ const RegestrationForm: React.FC = () => {
     if (fisrtNameState.length  < 1 && lastNameState.length  < 1 && positionState.length < 1) return;
 
     const strAvatar = `${lastNameState[0].toUpperCase() + fisrtNameState[0].toUpperCase()}`
-    const newUser = {
-      name: `${lastNameState} ${fisrtNameState}`,
-      position: positionState,
-      avatar: strAvatar,
-      color: '#B9A1F8'
-    }
+    // const newUser = {
+    //   name: `${lastNameState} ${fisrtNameState}`,
+    //   position: positionState,
+    //   avatar: strAvatar,
+    //   color: '#B9A1F8'
+    // }
 
     const candidat = {
       login: loginState,
@@ -39,11 +40,14 @@ const RegestrationForm: React.FC = () => {
       position: positionState,
       departament: positionState === 'оператор WMS' ? 'склад' : 'бухгалтерия',
       filial: 'РЦ Ханская',
-      avatar: strAvatar
+      avatar: strAvatar,
+      token: '',
+      isActivated: false
     }
-
-    disptach({type: SET_USER_INFO, payload: newUser})
-    socket.emit(USER_CREATE, newUser)
+    // registrations({...candidat})
+    disptach(registrations({...candidat}))
+    // disptach({type: SET_USER_INFO, payload: newUser})
+    // socket.emit(USER_CREATE, newUser)
   }
 
   return (

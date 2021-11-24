@@ -56,11 +56,11 @@ const CorporateRoom: React.FC = () => {
         type: chatState.type,
         token: chatState.roomToken,
         data: {
-          name: user.name,
+          name: `${user.lastName} ${user.firstName}`,
           typeMessage: 'user',
           avatar: user.avatar,
-          color: user.color,
-          userToken: user.token,
+          color: '#B9A1F8',
+          userToken: user.accessToken,
           message: inputState
         }
       }

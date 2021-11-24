@@ -1,8 +1,16 @@
 
 export interface UserStore {
-  name: string
-  token: string
-  color: string
-  avatar: string
+  login: string
+  password: string
+  firstName: string
+  lastName: string
+  email: string
+  phone: string
   position: string
+  departament: string
+  filial: string
+  avatar: string
+  isActivated: boolean
+  accessToken?: string
+  refreshToken?: string
 }
