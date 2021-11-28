@@ -9,15 +9,27 @@ import { RootReducerStore } from './interrfaces/root/RootReducerStore';
 import { UserStore } from './interrfaces/user/UserStore';
 import { SET_USER_INFO } from './store/types/user.types';
 import './styles/main.scss'
+import { getUserData } from './store/actions/user.actions';
+import { tnls } from './helpers/userStoreHelpers';
 
 const App: React.FC = () => {
   const userStore = useSelector((store: RootReducerStore) => store.user)
   const dispatch = useDispatch()
   const navigate = useNavigate()
+  const store = useSelector((store: RootReducerStore) => store.app)
+  const {isAuthorization} = store
 
   React.useEffect(() => {
-    const user_token = localStorage.getItem('ttUserToken')
+    if (isAuthorization) navigate('/messanger');
+  }, [isAuthorization])
 
+  React.useEffect(() => {
+    const user_token = localStorage.getItem(tnls)
+
+    if (user_token) dispatch(getUserData());
+
+
+    // устаревший функционал!
     if(userStore.accessToken!.length === 0) {
       if (user_token) socket.emit(USER_GET, {token: user_token})
     }

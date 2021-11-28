@@ -1,6 +1,6 @@
 import { Action } from "."
 import { UserStore } from "../../interrfaces/user/UserStore"
-import { SET_USER_INFO, SET_USER_TOKEN } from "../types"
+import { SET_USER_INFO, SET_USER_INFO_INIT, SET_USER_TOKEN } from "../types"
 
 const initState: UserStore = {
   avatar: '',
@@ -37,6 +37,24 @@ export const userReducer = (state = initState, action: Action) => {
         isActivated: action.payload.isActivated,
         accessToken: action.payload.accessToken,
         refreshToken: action.payload.refreshToken
+      }
+
+    case SET_USER_INFO_INIT:
+      return {
+        ...state, 
+        login: '',
+        password: '',
+        firstName: '',
+        lastName: '',
+        email: '',
+        phone: '',
+        position: '',
+        departament: '',
+        filial: '',
+        avatar: '',
+        isActivated: '',
+        accessToken: '',
+        refreshToken: ''
       }
 
     case SET_USER_TOKEN:
